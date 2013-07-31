@@ -1,0 +1,24 @@
+Install
+=======
+
+Debian dependencies:
+
+$ aptitude install python python-mako python-markupsafe python-paste python-pastedeploy python-pastescript \
+    python-weberror python-webhelpers python-webob
+
+Non-Debian dependencies:
+
+$ git clone git://gitorious.org/biryani/biryani.git biryani1
+$ cd biryani1
+$ git checkout biryani1
+$ python setup.py develop --no-deps --user
+
+Install eesyvpnweb Python egg (from eesyvpnweb root directory):
+
+$ python setup.py develop --no-deps --user
+
+
+Start server
+============
+
+$ paster serve --reload development.ini
