@@ -17,7 +17,7 @@
 % for name in data['certs']:
 <tr>
 	<td><a href="cert?id=${data['certs'][name]['id']}">${name}</a></td>
-	<td>${data['certs'][name]['expire']}</td>
+	<td>${helpers.expire_date(data['certs'][name]['expire']) | n}</td>
 	<td>
 		<a class='btn btn-primary' href='cert?action=renew&name=${name}'><i class="icon-refresh icon-white"></i> Renew</a>
 		<a class='btn btn-warning' href='cert?action=recreate&name=${name}'><i class="icon-repeat icon-white"></i> Recreate</a>
