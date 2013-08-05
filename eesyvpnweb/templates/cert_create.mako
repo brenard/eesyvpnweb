@@ -25,7 +25,11 @@
     <div class="controls">
       <select name='type'>
 		<option value='client'>Client</option>
+% if data['type']=='server':
+		<option value='server' selected>Server</option>
+% else:
 		<option value='server'>Server</option>
+% endif
       </select>
     </div>
   </div>
