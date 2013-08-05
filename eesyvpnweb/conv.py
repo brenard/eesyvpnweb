@@ -15,7 +15,9 @@ inputs_to_certs_data = struct(
 
 inputs_to_cert_data = struct(
     {
-        'id': pipe(cleanup_line, not_none),
+        'id': pipe(cleanup_line, empty_to_none),
+        'action': pipe(cleanup_line, empty_to_none),
+        'name': pipe(cleanup_line, empty_to_none),
     },
     default='drop',
     drop_none_values=False,
