@@ -37,7 +37,7 @@ def certs(req):
 			return templates.render(req.ctx, '/certs_client_valid.mako', data=data)
 	elif data['state']=='revoked':
 		data['certs']=eesyvpn.listRevokedCerts()
-		return templates.render(req.ctx, '/certs_client_revoked.mako', data=data)
+		return templates.render(req.ctx, '/certs_revoked.mako', data=data)
 	elif data['type']=='server':
 		data['certs']=eesyvpn.listValidCerts(type='server')
 		return templates.render(req.ctx, '/certs_server.mako', data=data)
