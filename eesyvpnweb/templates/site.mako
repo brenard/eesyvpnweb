@@ -19,6 +19,7 @@
         <li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Certificates<b class="caret"></b></a>
 			<ul class="dropdown-menu">
+			  <li><a href="cert?action=create">New certificate</a></li>
 			  <li><a href="certs?state=valid&type=client">Clients</a></li>
 			  <li><a href="certs?state=revoked">Revoked</a></li>
 			  <li><a href="certs?type=server">Servers</a></li>
