@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%block name="title_content">EesyVPN</%block></title>
     <link rel="stylesheet" href="${helpers.relative_path(ctx, '/lib/bootstrap/2.2.2/css/bootstrap.min.css')}">
-
+	<link rel="stylesheet" href="${helpers.relative_path(ctx, '/lib/bootstrap/2.2.2/css/bootstrap-responsive.css')}">
     <link rel="stylesheet" href="${helpers.relative_path(ctx, '/css/style.css')}">
   </head>
   <body>
