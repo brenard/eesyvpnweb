@@ -5,8 +5,11 @@
 
 <%block name="title_content">EesyVPN - Clients certificates</%block>
 
-<%block name="body_content"> 
-<h1>Clients certificates</h1>
+<%block name="body_content">
+<div class='row-fluid'>
+	<div class='span9'><h1>Clients certificates</h1></div>
+	<div class='span3 btn-title-right'><a class='btn btn-primary' href='cert?action=create'>Create new certificate</a></div>
+</div>
 
 <table class="table table-hover table-striped">
 <tr>

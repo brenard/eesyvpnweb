@@ -50,13 +50,32 @@ def cert(req):
 		'id': params.get('id'),
 		'action': params.get('action'),
 		'name': params.get('name'),
+		'type': params.get('type'),
 		}
 	log.debug(u'inputs = {}'.format(inputs))
 	data, errors = conv.inputs_to_cert_data(inputs)
 	if errors is not None:
 		return wsgi_helpers.bad_request(req.ctx, comment=errors)
 
-	if data['action'] and data['name']:
+	if data['action']=='create':
+		if data['name'] is None:
+			return templates.render(req.ctx, '/cert_create.mako', data=data)
+		else:
+			if data['type']=='server':
+				typ='server'
+			else:
+				typ='client'
+			try:
+				if eesyvpn.create(data['name'],type=typ):
+					data['msg']="Certificate %s successfuly created !" % data['name']
+					data['cert']=eesyvpn.view(data['name'])
+				else:
+					data['error']="Error creating certificate %s" % data['name']
+					return templates.render(req.ctx, '/cert_create.mako', data=data)
+			except Exception, e:
+				data['error']="<h4>Error creating certificate %s :</h4>\n<pre>%s</pre>" % (data['name'],e)
+				return templates.render(req.ctx, '/cert_create.mako', data=data)
+	elif data['action'] and data['name']:
 		log.debug('Run action "%s" on %s certificate' % (data['action'],data['name']))
 		if data['action']=='renew':
 			log.debug('Renew %s certificate' % data['name'])
